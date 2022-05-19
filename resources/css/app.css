@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*Simple scrollbar*/
+
+.scrollbars::-webkit-scrollbar {
+    width: 6px;
+  }
+
+.scrollbars::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px transparent;
+border-radius: 10px;
+}
+
+.scrollbars::-webkit-scrollbar-thumb {
+background: transparent;
+border-radius: 10px;
+}
+
+.scrollbars.show::-webkit-scrollbar-thumb, .scrollbars:hover::-webkit-scrollbar-thumb {
+background: #777;
+}
+
+:root {
+    /*for customizer*/
+    --indigo:      #6366F1;
+    --pink:        #EC4899;
+    --indigohover: #4F46E5;
+    --red:         #EF4444;
+    --redhover:    #DC2626;
+    --purple:      #8B5CF6;
+    --purplehover: #7C3AED;
+    --blue:        #3B82F6;
+    --bluehover:   #2563EB;
+    --yellowhover: #D97706;
+    --greenhover:  #059669;
+    --pinkhover:   #DB2777;
+    --white:       #ffffff;
+    --darkgray:    #141430;
+    --lightgray:   #98A5C0;
+    --darkness :   #0a0a18;
+  }
+
+/*Sidebar light*/
+.sidebar-dark {
+	color: var(--lightgray);
+	background-color: var(--darkgray);
+}
+.sidebar-dark li a {
+  color: var(--lightgray);
+}
+.sidebar-dark li a:hover, .sidebar-dark li a.text-indigo-500 {
+	color: var(--white);
+}
+.sidebar-dark span.text-gray-700 {
+  color: var(--white);
+}
+.sidebar-dark .bg-gray-300 {
+	background-color: #1e1f48;
+}

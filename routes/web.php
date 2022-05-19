@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'home');
+Route::view('/playground', 'playground');
+Route::view('/sysadmin/dashboard', 'domains.sysadmin.dashboard');
+Route::view('/sysadmin/credential/user', 'domains.sysadmin.credential.user');
+Route::view('/sysadmin/credential/role', 'domains.sysadmin.credential.role');
+Route::view('/sysadmin/credential/permission', 'domains.sysadmin.credential.permission');

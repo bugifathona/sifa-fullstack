@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Dashboard",
+        "type": "link",
+        "url": "sysadmin/dashboard"
+    },
+    {
+        "name": "Credential",
+        "type": "dropdown",
+        "url": "#",
+        "childs": [
+            {
+                "name": "User",
+                "type": "link",
+                "url": "sysadmin/credential/user"
+            },
+            {
+                "name": "Role",
+                "type": "link",
+                "url": "sysadmin/credential/role"
+            },
+            {
+                "name": "Permission",
+                "type": "link",
+                "url": "sysadmin/credential/permission"
+            }
+        ]
+    },
+    {
+        "name": "Reference",
+        "type": "dropdown",
+        "url": "#",
+        "childs": [
+            {
+                "name": "Branch",
+                "type": "link",
+                "url": "sysadmin/reference/branch"
+            },
+            {
+                "name": "Education Level",
+                "type": "link",
+                "url": "sysadmin/reference/education-level"
+            },
+            {
+                "name": "Class Grade",
+                "type": "link",
+                "url": "sysadmin/reference/class-grade"
+            }
+        ]
+    },
+    {
+        "name": "Just Link",
+        "type": "link",
+        "url": "#"
+    }
+]

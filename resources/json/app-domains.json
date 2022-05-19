@@ -1,0 +1,44 @@
+[
+    {
+        "domain": "SYSADMIN",
+        "icon": "heroicon-outline-arrow-right",
+        "description": "Aplikasi SIFA untuk Sysadmin",
+        "url": "sysadmin/dashboard"
+    },
+    {
+        "domain": "TEACHER",
+        "icon": "heroicon-outline-arrow-right",
+        "description": "Aplikasi SIFA untuk Guru",
+        "url": "teacher/dashboard"
+    },
+    {
+        "domain": "ADMIN",
+        "icon": "heroicon-outline-arrow-right",
+        "description": "Aplikasi SIFA untuk Admin (Tata Usaha)",
+        "url": "admin/dashboard"
+    },
+    {
+        "domain": "LEADER",
+        "icon": "heroicon-outline-arrow-right",
+        "description": "Aplikasi SIFA untuk Leader Sekolah",
+        "url": "leader/dashboard"
+    },
+    {
+        "domain": "DIRECTOR",
+        "icon": "heroicon-outline-arrow-right",
+        "description": "Aplikasi SIFA untuk Dewan Direktur",
+        "url": "director/dashboard"
+    },
+    {
+        "domain": "PARENT",
+        "icon": "heroicon-outline-arrow-right",
+        "description": "Aplikasi SIFA untuk Orang Tua",
+        "url": "parent/dashboard"
+    },
+    {
+        "domain": "STUDENT",
+        "icon": "heroicon-outline-arrow-right",
+        "description": "Aplikasi SIFA untuk Siswa",
+        "url": "student/dashboard"
+    }
+]
