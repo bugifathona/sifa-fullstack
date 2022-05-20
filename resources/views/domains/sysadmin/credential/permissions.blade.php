@@ -1,5 +1,5 @@
 @extends('layouts.sysadmin')
 
-@section('level2')
+@section('content2')
 
 @endsection

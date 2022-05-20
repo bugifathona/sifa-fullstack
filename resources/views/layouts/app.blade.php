@@ -7,6 +7,7 @@
   <title>SIFA</title>
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <script defer src="{{ asset('js/app.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables-classic@latest" type="text/javascript"></script>
 </head>
 <body class="font-sans text-base font-normal text-gray-600 dark:text-gray-400 dark:bg-gray-800">
 

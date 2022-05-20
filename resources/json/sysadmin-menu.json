@@ -12,17 +12,17 @@
             {
                 "name": "User",
                 "type": "link",
-                "url": "sysadmin/credential/user"
+                "url": "sysadmin/credential/users"
             },
             {
                 "name": "Role",
                 "type": "link",
-                "url": "sysadmin/credential/role"
+                "url": "sysadmin/credential/roles"
             },
             {
                 "name": "Permission",
                 "type": "link",
-                "url": "sysadmin/credential/permission"
+                "url": "sysadmin/credential/permissions"
             }
         ]
     },

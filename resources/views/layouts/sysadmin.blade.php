@@ -43,6 +43,7 @@
 				<div class="mx-auto p-2">
           <x-ui-page-title :page-title="$pageTitle" />
 				</div>
+        @yield('content2')
 			</main>
 
     </div>
