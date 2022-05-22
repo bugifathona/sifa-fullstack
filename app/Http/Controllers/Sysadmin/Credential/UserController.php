@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Sysadmin\Credential;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class CredUserController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +27,7 @@ class CredUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('domains.sysadmin.credential.users-create');
     }
 
     /**
@@ -37,7 +38,21 @@ class CredUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:6',
+            'role' => 'required',
+        ]);
+
+        $user = User::create([
+            'username' => $validated['username'],
+            'password' => bcrypt($validated['password']),
+        ]);
+
+        $user->assignRole($validated['role']);
+
+        return redirect()->route('sysadmin.credential.users.index')
+            ->with('created', $user);
     }
 
     /**
@@ -48,7 +63,9 @@ class CredUserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('domains.sysadmin.credential.users-show')->with('user', $user);
     }
 
     /**
@@ -59,7 +76,9 @@ class CredUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('domains.sysadmin.credential.users-edit')->with('user', $user);
     }
 
     /**
@@ -82,6 +101,10 @@ class CredUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $deletedUser = $user;
+        $user->delete();
+
+        return redirect()->route('sysadmin.credential.users.index')->with('deleted', $deletedUser);
     }
 }
