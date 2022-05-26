@@ -6,23 +6,25 @@
     $data = file_get_contents(resource_path('json/sysadmin-menu.json'));
     $menuList = json_decode($data);
     $segments = request()->segments();
-    //dd($segments);
     $currentLink = request()->path();
-    $currentLevel1 = $segments[0] . '/' . $segments[1];
+    $currentLevel1 = '/' . $segments[0] . '/' . $segments[1];
     if (isset($segments[2])) {
-      $currentLevel2 = $segments[0] . '/' . $segments[1] . '/' . $segments[2];
+      $currentLevel2 = '/' . $segments[0] . '/' . $segments[1] . '/' . $segments[2];
     }
+    //dd($currentLevel2);
     foreach ($menuList as $level1) {
-      if ($level1->url == $currentLevel1) {
-        $activeLevel1 = $level1->name;
-        $activeLevel2 = null;
-        $pageTitle = $activeLevel1;
-        break;
+      if ($level1->type == 'link') {
+        if (route($level1->route,[],false) == $currentLevel1) {
+          $activeLevel1 = $level1->name;
+          $activeLevel2 = null;
+          $pageTitle = $activeLevel1;
+          break;
+        }
       }
 
-      if (isset($level1->childs)) {
+      if ($level1->type == 'dropdown') {
         foreach ($level1->childs as $level2) {
-          if ($level2->url == $currentLevel2) {
+          if (route($level2->route,[],false) == $currentLevel2) {
             $activeLevel1 = $level1->name;
             $activeLevel2 = $level2->name;
             $pageTitle = $activeLevel2;

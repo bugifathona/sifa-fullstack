@@ -12,7 +12,7 @@
       <div class="h-full overflow-y-auto scrollbars">
         <!--logo-->
         <div class="mh-18 text-center py-5">
-          <a href="{{ url('sysadmin/dashboard') }}" class="w-full m-auto">
+          <a href="{{ route('sysadmin.dashboard') }}" class="w-full m-auto">
               <img src="{{ asset('assets/img/sifa-logo-full-2-white.png') }}" class="inline-block h-10 ltr:mr-4 rtl:ml-4 -mt-1" alt="SIFA">
           </a>
         </div>
@@ -22,7 +22,7 @@
           @foreach ($menus as $item1)
             @if ($item1->type === 'dropdown')
               <li class="relative">
-                <a href="{{ url($item1->url) }}" class="block py-2.5 px-6 hover:text-zinc-200" :class="{ 'text-zinc-200 font-medium': level1 == '{{ $item1->name }}' }" x-on:click="level1 == '{{ $item1->name }}' ? level1 = null : level1 = '{{ $item1->name }}'">
+                <a href="{{ route($item1->route) }}" class="block py-2.5 px-6 hover:text-zinc-200" :class="{ 'text-zinc-200 font-medium': level1 == '{{ $item1->name }}' }" x-on:click="level1 == '{{ $item1->name }}' ? level1 = null : level1 = '{{ $item1->name }}'">
                   <span>{{ $item1->name }}</span>
                   <span class="inline-block float-right duration-300" :class="{ 'rotate-90': level1 == '{{ $item1->name }}' }">
                     <x-heroicon-solid-chevron-right />
@@ -32,7 +32,7 @@
                   @foreach ($item1->childs as $item2)
                     @if ($item2->type === 'dropdown')
                       <li class="relative">
-                        <a href="{{ url($item2->url) }}" class="block py-2.5 px-6 hover:text-zinc-200" :class="{ 'text-zinc-200 font-medium': level2 == '{{ $item2->name }}' }" x-on:click="level2 == '{{ $item2->name }}' ? level2 = null : level2 = '{{ $item2->name }}'">
+                        <a href="{{ route($item2->route) }}" class="block py-2.5 px-6 hover:text-zinc-200" :class="{ 'text-zinc-200 font-medium': level2 == '{{ $item2->name }}' }" x-on:click="level2 == '{{ $item2->name }}' ? level2 = null : level2 = '{{ $item2->name }}'">
                           <span>{{ $item2->name }}</span>
                           <span class="inline-block float-right duration-300" :class="{ 'rotate-90': level2 == '{{ $item2->name }}' }">
                             <x-heroicon-solid-chevron-right />
@@ -47,7 +47,7 @@
                     @endif
 
                     @if ($item2->type === 'link')
-                      <a href="{{ url($item2->url) }}" class="block py-2.5 px-6 hover:text-zinc-200 {{ (request()->is($item2->url)) ? 'text-zinc-200 font-medium' : '' }}" >
+                      <a href="{{ route($item2->route) }}" class="block py-2.5 px-6 hover:text-zinc-200 {{ (request()->is($item2->url)) ? 'text-zinc-200 font-medium' : '' }}" >
                         <span>{{ $item2->name }}</span>
                       </a>
                     @endif
@@ -57,7 +57,7 @@
             @endif
 
             @if ($item1->type === 'link')
-              <a href="{{ url($item1->url) }}" class="block py-2.5 px-6 hover:text-zinc-200 {{ (request()->is($item1->url)) ? 'text-zinc-200 font-medium' : '' }}">
+              <a href="{{ route($item1->route) }}" class="block py-2.5 px-6 hover:text-zinc-200 {{ (request()->is($item1->url)) ? 'text-zinc-200 font-medium' : '' }}">
                 <span>{{ $item1->name }}</span>
               </a>
             @endif

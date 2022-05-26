@@ -2,55 +2,53 @@
     {
         "name": "Dashboard",
         "type": "link",
-        "url": "sysadmin/dashboard"
+        "route": "sysadmin.dashboard"
     },
     {
         "name": "Credential",
         "type": "dropdown",
-        "url": "#",
         "childs": [
             {
                 "name": "User",
                 "type": "link",
-                "url": "sysadmin/credential/users"
+                "route": "sysadmin.credential.users.index"
             },
             {
                 "name": "Role",
                 "type": "link",
-                "url": "sysadmin/credential/roles"
+                "route": "sysadmin.credential.roles.index"
             },
             {
                 "name": "Permission",
                 "type": "link",
-                "url": "sysadmin/credential/permissions"
+                "route": "sysadmin.credential.permissions.index"
             }
         ]
     },
     {
         "name": "Reference",
         "type": "dropdown",
-        "url": "#",
         "childs": [
             {
                 "name": "Branch",
                 "type": "link",
-                "url": "sysadmin/reference/branch"
+                "route": "sysadmin.reference.branches.index"
             },
             {
                 "name": "Education Level",
                 "type": "link",
-                "url": "sysadmin/reference/education-level"
+                "route": "sysadmin.reference.education-levels.index"
             },
             {
                 "name": "Class Grade",
                 "type": "link",
-                "url": "sysadmin/reference/class-grade"
+                "route": "sysadmin.reference.class-grades.index"
             }
         ]
     },
     {
         "name": "Just Link",
         "type": "link",
-        "url": "#"
+        "route": "#"
     }
 ]

@@ -35,7 +35,7 @@
             Users Data
           </h2>
           <div class="flex justify-start">
-            <a href="{{ url('sysadmin/credential/users/create') }}" class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-green-500 border border-green-500 hover:text-white hover:bg-green-600 hover:ring-0 hover:border-green-600 focus:bg-green-600 focus:border-green-600 focus:outline-none focus:ring-0 mr-2">
+            <a href="{{ route('sysadmin.credential.users.create') }}" class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-green-500 border border-green-500 hover:text-white hover:bg-green-600 hover:ring-0 hover:border-green-600 focus:bg-green-600 focus:border-green-600 focus:outline-none focus:ring-0 mr-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="inline-block mr-1" width="1.5rem" height="1.5rem" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
@@ -87,8 +87,8 @@
                         @endif
                       @endforeach
                     </td>
-                    <td class="border border-gray-200 p-2 dark:border-gray-700">{{ $user->created_at }}</td>
-                    <td class="border border-gray-200 p-2 dark:border-gray-700">{{ $user->updated_at }}</td>
+                    <td class="border border-gray-200 p-2 dark:border-gray-700">{{ $user->created_at->format('d M Y') }}</td>
+                    <td class="border border-gray-200 p-2 dark:border-gray-700">{{ $user->updated_at->format('d M Y') }}</td>
                   </tr>
               @endforeach
             </tbody>

@@ -38,18 +38,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'username' => 'required|unique:users,username',
             'password' => 'required|min:6',
             'role' => 'required',
         ]);
 
         $user = User::create([
-            'username' => $validated['username'],
-            'password' => bcrypt($validated['password']),
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
         ]);
 
-        $user->assignRole($validated['role']);
+        $user->assignRole($request->role);
 
         return redirect()->route('sysadmin.credential.users.index')
             ->with('created', $user);
@@ -90,7 +90,34 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        if ($request->password == '') {
+
+            $request->validate([
+                'username' => 'required|unique:users,username,' . $id,
+                'role' => 'required',
+            ]);
+
+            $user->username = $request->username;
+            $user->save();
+            $user->syncRoles($request->role);
+        }
+        else {
+            $request->validate([
+                'username' => 'required|unique:users,username,' . $id,
+                'password' => 'min:6',
+                'role' => 'required',
+            ]);
+
+            $user->username = $request->username;
+            $user->password = bcrypt($request->password);
+            $user->save();
+            $user->syncRoles($request->role);
+        }
+
+        return redirect()->route('sysadmin.credential.users.index')
+            ->with('updated', $user);
     }
 
     /**

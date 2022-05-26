@@ -125,7 +125,7 @@
             <ul x-data="{ level2: '{{ $activeLevel2 }}' }" x-show="level1 == '{{ $item1->name }}'" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" class="block rounded rounded-t-none top-full z-50 ltr:pl-4 rtl:pr-4 py-0.5 ltr:text-left rtl:text-right mb-1 font-normal">
               @foreach ($item1->childs as $item2)
                 <li class="relative">
-                  <a :class="{ 'text-indigo-500 dark:text-gray-300': level2 == '{{ $item2->name }}' }" class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 text-indigo-500 dark:text-gray-300" href="{{ url($item2->url) }}">
+                  <a :class="{ 'text-indigo-500 dark:text-gray-300': level2 == '{{ $item2->name }}' }" class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 text-indigo-500 dark:text-gray-300" href="{{ route($item2->route) }}">
                     <span>{{ $item2->name }}</span>
                   </a>
                 </li>
@@ -136,7 +136,7 @@
 
         @if ($item1->type == 'link')
           <li class="relative">
-            <a :class="{ 'text-indigo-500 dark:text-gray-300': level1 == '{{ $item1->name }}' }" class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 text-indigo-500 dark:text-gray-300" href="{{ url($item1->url) }}">
+            <a :class="{ 'text-indigo-500 dark:text-gray-300': level1 == '{{ $item1->name }}' }" class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 text-indigo-500 dark:text-gray-300" href="{{ route($item1->route) }}">
               <span>{{ $item1->name }}</span>
             </a>
           </li>
