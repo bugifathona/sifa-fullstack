@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sysadmin\Credential;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -14,7 +15,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+
+        return view('domains.sysadmin.credential.roles')->with('roles', $roles);
     }
 
     /**
@@ -24,7 +27,18 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $guardOptions= [
+            (object) [
+              'value' => 'web',
+              'name' => 'web'
+            ],
+            (object) [
+              'value' => 'api',
+              'name' => 'api'
+            ]
+        ];
+
+        return view('domains.sysadmin.credential.roles-create')->with('guardOptions', $guardOptions);
     }
 
     /**
@@ -35,7 +49,18 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->guard_name);
+        $request->validate([
+            'name' => 'required|unique:roles,name',
+            'guard_name' => 'required'
+        ]);
+
+        $role = Role::create([
+            'name' => $request->name,
+            'guard_name' => $request->guard_name
+        ]);
+
+        return redirect()->route('sysadmin.credential.roles.index')->with('created', $role->name);
     }
 
     /**
@@ -46,7 +71,9 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        $role = Role::find($id);
+
+        return view('domains.sysadmin.credential.roles-show')->with('role', $role);
     }
 
     /**
@@ -57,7 +84,20 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::find($id);
+
+        $guardOptions= [
+            (object) [
+              'value' => 'web',
+              'name' => 'web'
+            ],
+            (object) [
+              'value' => 'api',
+              'name' => 'api'
+            ]
+        ];
+
+        return view('domains.sysadmin.credential.roles-edit')->with('role', $role)->with('guardOptions', $guardOptions);
     }
 
     /**
@@ -69,7 +109,19 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'guard_name' => 'required'
+        ]);
+
+        $role = Role::find($id);
+
+        $role->name = $request->name;
+        $role->guard_name = $request->guard_name;
+        $role->save();
+
+        return redirect()->route('sysadmin.credential.roles.index')
+            ->with('updated', $role->name);
     }
 
     /**
@@ -80,6 +132,10 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role = Role::find($id);
+        $deleted = $role;
+        $role->delete();
+
+        return redirect()->route('sysadmin.credential.roles.index')->with('deleted', $deleted->name);
     }
 }

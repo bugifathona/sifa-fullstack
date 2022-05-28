@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormInputDatetime extends Component
+class FormCheckbox extends Component
 {
     /**
      * Create a new component instance.
@@ -23,10 +23,6 @@ class UiFormInputDatetime extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Walk as if you are kissing the Earth with your feet. - Thich Nhat Hanh -->
-</div>
-blade;
+        return view('components.form-checkbox');
     }
 }

@@ -17,6 +17,8 @@ Route::view('/', 'home')->name("#");
 Route::view('/playground', 'playground');
 
 Route::resource('sysadmin/credential/users', App\Http\Controllers\Sysadmin\Credential\UserController::class, ['as' => 'sysadmin.credential']);
+Route::resource('sysadmin/credential/roles', App\Http\Controllers\Sysadmin\Credential\RoleController::class, ['as' => 'sysadmin.credential']);
+Route::resource('sysadmin/credential/permissions', App\Http\Controllers\Sysadmin\Credential\PermissionController::class, ['as' => 'sysadmin.credential']);
 
 // Route::controller(UserController::class)->group(function() {
 //     Route::get('/sysadmin/credential/users', 'index')->name('sysadmin.credential.users.index');
@@ -28,8 +30,6 @@ Route::resource('sysadmin/credential/users', App\Http\Controllers\Sysadmin\Crede
 //     Route::delete('/sysadmin/credential/users/{id}', 'destroy')->name('sysadmin.credential.users.delete');
 // });
 Route::view('/sysadmin/dashboard', 'domains.sysadmin.dashboard')->name('sysadmin.dashboard');
-Route::view('/sysadmin/credential/roles', 'domains.sysadmin.credential.role')->name('sysadmin.credential.roles.index');
-Route::view('/sysadmin/credential/permissions', 'domains.sysadmin.credential.permission')->name('sysadmin.credential.permissions.index');
 Route::view('/sysadmin/reference/branches', 'domains.sysadmin.reference.branches')->name('sysadmin.reference.branches.index');
 Route::view('/sysadmin/reference/education-levels', 'domains.sysadmin.reference.education-levels')->name('sysadmin.reference.education-levels.index');
 Route::view('/sysadmin/reference/class-grades', 'domains.sysadmin.reference.class-grades')->name('sysadmin.reference.class-grades.index');

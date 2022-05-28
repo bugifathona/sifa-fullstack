@@ -45,7 +45,7 @@
           <a href="{{ route('sysadmin.credential.users.index') }}" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-800 bg-gray-100 border border-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 mx-2">
             Back
           </a>
-          <a href="{{ route('sysadmin.credential.users.edit', $user) }}" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-green-500 border border-green-500 hover:text-white hover:bg-green-700 hover:ring-0 hover:border-green-700 focus:bg-green-600 focus:border-green-700 focus:outline-none focus:ring-0 mx-2">
+          <a href="{{ route('sysadmin.credential.users.edit', $user->id) }}" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-green-500 border border-green-500 hover:text-white hover:bg-green-700 hover:ring-0 hover:border-green-700 focus:bg-green-600 focus:border-green-700 focus:outline-none focus:ring-0 mx-2">
             Edit
           </a>
         </div>

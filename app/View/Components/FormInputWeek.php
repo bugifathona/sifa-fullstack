@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormRadio extends Component
+class FormInputWeek extends Component
 {
     /**
      * Create a new component instance.
@@ -23,10 +23,6 @@ class UiFormRadio extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- The best way to take care of the future is to take care of the present moment. - Thich Nhat Hanh -->
-</div>
-blade;
+        return view('components.form-input-week');
     }
 }

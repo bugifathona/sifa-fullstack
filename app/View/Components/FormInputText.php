@@ -4,16 +4,21 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormTextArea extends Component
+class FormInputText extends Component
 {
+    public $label, $var, $placeholder, $value;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($label = "", $var = "", $placeholder = "", $value = null)
     {
-        //
+        $this->label = $label;
+        $this->var = $var;
+        $this->placeholder = $placeholder;
+        $this->value = $value;
     }
 
     /**
@@ -23,10 +28,6 @@ class UiFormTextArea extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- I have not failed. I've just found 10,000 ways that won't work. - Thomas Edison -->
-</div>
-blade;
+        return view('components.form-input-text');
     }
 }

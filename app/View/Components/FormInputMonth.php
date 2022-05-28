@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormInputDate extends Component
+class FormInputMonth extends Component
 {
     /**
      * Create a new component instance.
@@ -23,10 +23,6 @@ class UiFormInputDate extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Simplicity is an acquired taste. - Katharine Gerould -->
-</div>
-blade;
+        return view('components.form-input-month');
     }
 }

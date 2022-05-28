@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormInputNumber extends Component
+class FormInputNumber extends Component
 {
     /**
      * Create a new component instance.
@@ -23,10 +23,6 @@ class UiFormInputNumber extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Breathing in, I calm body and mind. Breathing out, I smile. - Thich Nhat Hanh -->
-</div>
-blade;
+        return view('components.form-input-number');
     }
 }

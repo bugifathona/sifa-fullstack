@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormInputSearch extends Component
+class FormInputTime extends Component
 {
     /**
      * Create a new component instance.
@@ -23,10 +23,6 @@ class UiFormInputSearch extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Act only according to that maxim whereby you can, at the same time, will that it should become a universal law. - Immanuel Kant -->
-</div>
-blade;
+        return view('components.form-input-time');
     }
 }

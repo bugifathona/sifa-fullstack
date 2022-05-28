@@ -4,16 +4,18 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormInputWeek extends Component
+class SweetActionNotif extends Component
 {
+    public $model;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($model = '')
     {
-        //
+        $this->model = $model;
     }
 
     /**
@@ -23,10 +25,6 @@ class UiFormInputWeek extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- I begin to speak only when I am certain what I will say is not better left unsaid. - Cato the Younger -->
-</div>
-blade;
+        return view('components.sweet-action-notif');
     }
 }

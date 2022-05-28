@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormCheckbox extends Component
+class FormInputPhone extends Component
 {
     /**
      * Create a new component instance.
@@ -23,10 +23,6 @@ class UiFormCheckbox extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Because you are alive, everything is possible. - Thich Nhat Hanh -->
-</div>
-blade;
+        return view('components.form-input-phone');
     }
 }

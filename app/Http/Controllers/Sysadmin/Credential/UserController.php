@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sysadmin\Credential;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -27,7 +28,16 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('domains.sysadmin.credential.users-create');
+        $roles = Role::all();
+
+        foreach ($roles as $role) {
+            $roleOptions[] = (object)[
+                'value' => $role->name,
+                'name' => str($role->name)->title()
+            ];
+        }
+
+        return view('domains.sysadmin.credential.users-create')->with('roleOptions',$roleOptions);
     }
 
     /**
@@ -52,7 +62,7 @@ class UserController extends Controller
         $user->assignRole($request->role);
 
         return redirect()->route('sysadmin.credential.users.index')
-            ->with('created', $user);
+            ->with('created', $user->username);
     }
 
     /**
@@ -78,7 +88,16 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('domains.sysadmin.credential.users-edit')->with('user', $user);
+        $roles = Role::all();
+
+        foreach ($roles as $role) {
+            $roleOptions[] = (object)[
+                'value' => $role->name,
+                'name' => str($role->name)->title()
+            ];
+        }
+
+        return view('domains.sysadmin.credential.users-edit')->with('user', $user)->with('roleOptions', $roleOptions);
     }
 
     /**
@@ -117,7 +136,7 @@ class UserController extends Controller
         }
 
         return redirect()->route('sysadmin.credential.users.index')
-            ->with('updated', $user);
+            ->with('updated', $user->username);
     }
 
     /**
@@ -129,9 +148,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $deletedUser = $user;
+        $deleted = $user;
         $user->delete();
 
-        return redirect()->route('sysadmin.credential.users.index')->with('deleted', $deletedUser);
+        return redirect()->route('sysadmin.credential.users.index')->with('deleted', $deleted->username);
     }
 }

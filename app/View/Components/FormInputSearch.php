@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormSelectMultiple extends Component
+class FormInputSearch extends Component
 {
     /**
      * Create a new component instance.
@@ -23,10 +23,6 @@ class UiFormSelectMultiple extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->
-</div>
-blade;
+        return view('components.form-input-search');
     }
 }

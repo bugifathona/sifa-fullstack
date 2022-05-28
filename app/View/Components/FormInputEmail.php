@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormInputPhone extends Component
+class FormInputEmail extends Component
 {
     /**
      * Create a new component instance.
@@ -23,10 +23,6 @@ class UiFormInputPhone extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- It is never too late to be what you might have been. - George Eliot -->
-</div>
-blade;
+        return view('components.form-input-email');
     }
 }

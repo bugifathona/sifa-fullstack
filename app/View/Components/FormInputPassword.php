@@ -4,16 +4,20 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class UiFormInputPassword extends Component
+class FormInputPassword extends Component
 {
+    public $label, $var, $placeholder;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($label, $var, $placeholder)
     {
-        //
+        $this->label = $label;
+        $this->var = $var;
+        $this->placeholder = $placeholder;
     }
 
     /**
@@ -23,10 +27,6 @@ class UiFormInputPassword extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Life is available only in the present moment. - Thich Nhat Hanh -->
-</div>
-blade;
+        return view('components.form-input-password');
     }
 }
