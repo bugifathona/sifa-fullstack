@@ -6,14 +6,19 @@ use Illuminate\View\Component;
 
 class FormCheckbox extends Component
 {
+    public $label, $var, $options, $checked;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($label = '', $var = '', $options = null, $checked = null)
     {
-        //
+        $this->label = $label;
+        $this->var = $var;
+        $this->options = $options;
+        $this->checked = $checked;
     }
 
     /**

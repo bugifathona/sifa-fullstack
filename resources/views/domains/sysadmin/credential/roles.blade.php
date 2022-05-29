@@ -55,17 +55,24 @@
                     </form>
                   </td>
                   <td class="border border-gray-200 p-2 dark:border-gray-700">
-                    <a href="{{ route('sysadmin.credential.roles.show', $role)}}" class="hover:font-semibold hover:text-black">
+                    <a href="{{ route('sysadmin.credential.roles.show', $role->id)}}" class="hover:font-semibold hover:text-black">
                       <u>{{ $role->name }}</u>
                     </a>
                   </td>
-                  <td class="border border-gray-200 p-2 dark:border-gray-700">
+                  <td class="border border-gray-200 p-2 dark:border-gray-700 text-center">
                     {{ $role->guard_name }}
                   </td>
-                  <td class="border border-gray-200 p-2 dark:border-gray-700">{{ $role->created_at->format('d M Y') }}</td>
-                  <td class="border border-gray-200 p-2 dark:border-gray-700">{{ $role->updated_at->format('d M Y') }}</td>
+                  <td class="border border-gray-200 p-2 dark:border-gray-700 text-center">{{ $role->created_at->format('d M Y') }}</td>
+                  <td class="border border-gray-200 p-2 dark:border-gray-700 text-center">{{ $role->updated_at->format('d M Y') }}</td>
                 </tr>
               @endforeach
+              @if ($roles->count() == 0)
+                <tr>
+                  <td colspan="5" class="font-bold text-center border border-gray-200 p-4 dark:border-gray-700">
+                    Sorry, there is no data to be displayed!
+                  </td>
+                </tr>
+              @endif
             </tbody>
           </table>
         </div>

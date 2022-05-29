@@ -6,14 +6,19 @@ use Illuminate\View\Component;
 
 class FormInputSearch extends Component
 {
+    public $label, $var, $placeholder, $value;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($label = "", $var = "", $placeholder = "", $value = null)
     {
-        //
+        $this->label = $label;
+        $this->var = $var;
+        $this->placeholder = $placeholder;
+        $this->value = $value;
     }
 
     /**

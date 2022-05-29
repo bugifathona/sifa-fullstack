@@ -6,14 +6,20 @@ use Illuminate\View\Component;
 
 class FormInputPhone extends Component
 {
+    public $label, $var, $placeholder, $value, $pattern;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($label = "", $var = "", $placeholder = "", $value = null, $pattern = '')
     {
-        //
+        $this->label = $label;
+        $this->var = $var;
+        $this->placeholder = $placeholder;
+        $this->value = $value;
+        $this->pattern = $pattern;
     }
 
     /**

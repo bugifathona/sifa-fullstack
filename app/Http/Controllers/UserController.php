@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Sysadmin\Credential;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -18,7 +18,8 @@ class UserController extends Controller
     {
         $users = User::with('roles')->get();
 
-        return view('domains.sysadmin.credential.users')->with('users', $users);
+        return view('domains.sysadmin.credential.users')
+            ->with('users', $users);
     }
 
     /**
@@ -37,7 +38,8 @@ class UserController extends Controller
             ];
         }
 
-        return view('domains.sysadmin.credential.users-create')->with('roleOptions',$roleOptions);
+        return view('domains.sysadmin.credential.users-create')
+            ->with('roleOptions',$roleOptions);
     }
 
     /**
@@ -75,7 +77,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('domains.sysadmin.credential.users-show')->with('user', $user);
+        return view('domains.sysadmin.credential.users-show')
+            ->with('user', $user);
     }
 
     /**
@@ -97,7 +100,9 @@ class UserController extends Controller
             ];
         }
 
-        return view('domains.sysadmin.credential.users-edit')->with('user', $user)->with('roleOptions', $roleOptions);
+        return view('domains.sysadmin.credential.users-edit')
+            ->with('user', $user)
+            ->with('roleOptions', $roleOptions);
     }
 
     /**
@@ -151,6 +156,7 @@ class UserController extends Controller
         $deleted = $user;
         $user->delete();
 
-        return redirect()->route('sysadmin.credential.users.index')->with('deleted', $deleted->username);
+        return redirect()->route('sysadmin.credential.users.index')
+            ->with('deleted', $deleted->username);
     }
 }

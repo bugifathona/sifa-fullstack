@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Sysadmin\Credential;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\RefEducationLevel;
 use Illuminate\Http\Request;
 
-class PermissionController extends Controller
+class RefEducationLevelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PermissionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\RefEducationLevel  $refEducationLevel
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(RefEducationLevel $refEducationLevel)
     {
         //
     }
@@ -52,10 +52,10 @@ class PermissionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\RefEducationLevel  $refEducationLevel
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(RefEducationLevel $refEducationLevel)
     {
         //
     }
@@ -64,10 +64,10 @@ class PermissionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\RefEducationLevel  $refEducationLevel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, RefEducationLevel $refEducationLevel)
     {
         //
     }
@@ -75,10 +75,10 @@ class PermissionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\RefEducationLevel  $refEducationLevel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(RefEducationLevel $refEducationLevel)
     {
         //
     }

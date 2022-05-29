@@ -12,12 +12,12 @@
 
 @if (Session::has('updated'))
 <script>
-  Swal.fire(
+  Swal.fire({
     title: 'Updated',
     html: '{{ $model }} <span class="text-black font-bold">{{ Session::get('updated') }}</span> updated!',
     icon: 'success',
     confirmButtonText: 'OK'
-  )
+  })
 </script>
 @endif
 

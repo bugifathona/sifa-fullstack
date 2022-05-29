@@ -16,20 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'home')->name("#");
 Route::view('/playground', 'playground');
 
-Route::resource('sysadmin/credential/users', App\Http\Controllers\Sysadmin\Credential\UserController::class, ['as' => 'sysadmin.credential']);
-Route::resource('sysadmin/credential/roles', App\Http\Controllers\Sysadmin\Credential\RoleController::class, ['as' => 'sysadmin.credential']);
-Route::resource('sysadmin/credential/permissions', App\Http\Controllers\Sysadmin\Credential\PermissionController::class, ['as' => 'sysadmin.credential']);
-
-// Route::controller(UserController::class)->group(function() {
-//     Route::get('/sysadmin/credential/users', 'index')->name('sysadmin.credential.users.index');
-//     Route::get('/sysadmin/credential/users/create', 'create')->name('sysadmin.credential.users.create');
-//     Route::post('/sysadmin/credential/users', 'store')->name('sysadmin.credential.users.store');
-//     Route::get('/sysadmin/credential/users/{id}', 'show')->name('sysadmin.credential.users.show');
-//     Route::get('/sysadmin/credential/users/{id}/edit', 'edit')->name('sysadmin.credential.users.edit');
-//     Route::put('/sysadmin/credential/users/{id}', 'update')->name('sysadmin.credential.users.update');
-//     Route::delete('/sysadmin/credential/users/{id}', 'destroy')->name('sysadmin.credential.users.delete');
-// });
+Route::resource('sysadmin/credential/users', App\Http\Controllers\UserController::class, ['as' => 'sysadmin.credential']);
+Route::resource('sysadmin/credential/roles', App\Http\Controllers\RoleController::class, ['as' => 'sysadmin.credential']);
+Route::resource('sysadmin/credential/permissions', App\Http\Controllers\PermissionController::class, ['as' => 'sysadmin.credential']);
+Route::resource('sysadmin/reference/branches', App\Http\Controllers\RefBranchController::class, ['as' => 'sysadmin.reference']);
+Route::resource('sysadmin/reference/education-levels', App\Http\Controllers\RefEducationLevelController::class, ['as' => 'sysadmin.reference']);
+Route::resource('sysadmin/reference/class-grades', App\Http\Controllers\RefClassGradeController::class, ['as' => 'sysadmin.reference']);
 Route::view('/sysadmin/dashboard', 'domains.sysadmin.dashboard')->name('sysadmin.dashboard');
-Route::view('/sysadmin/reference/branches', 'domains.sysadmin.reference.branches')->name('sysadmin.reference.branches.index');
-Route::view('/sysadmin/reference/education-levels', 'domains.sysadmin.reference.education-levels')->name('sysadmin.reference.education-levels.index');
-Route::view('/sysadmin/reference/class-grades', 'domains.sysadmin.reference.class-grades')->name('sysadmin.reference.class-grades.index');
