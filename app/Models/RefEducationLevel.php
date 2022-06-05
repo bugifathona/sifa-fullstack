@@ -13,6 +13,16 @@ class RefEducationLevel extends Model
 
     public function refClassGrade()
     {
-        return $this->hasMany(refClassGrade::class);
+        return $this->hasMany(RefClassGrade::class);
+    }
+
+    public function profileParentFathers()
+    {
+        return $this->hasMany(ProfileParent::class, 'father_status_id');
+    }
+
+    public function profileParentMothers()
+    {
+        return $this->hasMany(ProfileParent::class, 'mother_status_id');
     }
 }

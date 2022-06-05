@@ -47,6 +47,12 @@
         ]
     },
     {
+        "name": "Academic",
+        "type": "dropdown",
+        "childs": [
+        ]
+    },
+    {
         "name": "Just Link",
         "type": "link",
         "route": "#"
