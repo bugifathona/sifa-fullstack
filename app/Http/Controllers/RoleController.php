@@ -133,9 +133,9 @@ class RoleController extends Controller
     public function destroy($id)
     {
         $role = Role::find($id);
-        $deleted = $role;
         $role->delete();
 
-        return redirect()->route('sysadmin.credential.roles.index')->with('deleted', $deleted->name);
+        return redirect()->route('sysadmin.credential.roles.index')
+            ->with('deleted', $role->name);
     }
 }

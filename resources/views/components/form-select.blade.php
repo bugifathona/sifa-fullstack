@@ -20,7 +20,7 @@
           </option>
       @endforeach
   </select>
-  @error('role')
+  @error($var)
     <div class="text-red-500 text-sm">{{ $message }}</div>
   @enderror
 </div>

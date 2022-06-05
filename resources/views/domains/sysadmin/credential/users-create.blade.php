@@ -16,14 +16,14 @@
           <div class="p-6 flex-grow">
             <x-form-input-text label="Username" var="username" placeholder="Username"></x-form-input-text>
             <x-form-input-password label="Password" var="password" placeholder="Password"></x-ui-form-input-password>
-            <x-form-select label="Role" var="role" :options="$roleOptions"></x-ui-form-select>
+            <x-form-select label="Role" var="role" :options="$role_options"></x-ui-form-select>
           </div>
           <!-- Modal Buttons -->
           <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">
             <a href="{{ route('sysadmin.credential.users.index') }}" class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-800 bg-gray-100 border border-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 ltr:mr-2 rtl:ml-2">
               Back
             </a>
-            <x-form-submit label="Create User"></x-form-submit>
+            <x-form-submit label="Create"></x-form-submit>
           </div>
         </form>
       </div>

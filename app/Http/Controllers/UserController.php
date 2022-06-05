@@ -32,14 +32,14 @@ class UserController extends Controller
         $roles = Role::all();
 
         foreach ($roles as $role) {
-            $roleOptions[] = (object)[
+            $role_options[] = (object)[
                 'value' => $role->name,
                 'name' => str($role->name)->title()
             ];
         }
 
         return view('domains.sysadmin.credential.users-create')
-            ->with('roleOptions',$roleOptions);
+            ->with('role_options',$role_options);
     }
 
     /**
@@ -94,7 +94,7 @@ class UserController extends Controller
         $roles = Role::all();
 
         foreach ($roles as $role) {
-            $roleOptions[] = (object)[
+            $role_options[] = (object)[
                 'value' => $role->name,
                 'name' => str($role->name)->title()
             ];
@@ -102,7 +102,7 @@ class UserController extends Controller
 
         return view('domains.sysadmin.credential.users-edit')
             ->with('user', $user)
-            ->with('roleOptions', $roleOptions);
+            ->with('role_options', $role_options);
     }
 
     /**
@@ -153,10 +153,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $deleted = $user;
         $user->delete();
 
         return redirect()->route('sysadmin.credential.users.index')
-            ->with('deleted', $deleted->username);
+            ->with('deleted', $user->username);
     }
 }

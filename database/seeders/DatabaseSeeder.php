@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             PermissionSeeder::class,
-            RefBranchSeeder::class
+            RefBranchSeeder::class,
+            RefEducationLevelSeeder::class,
+            RefClassGradeSeeder::class,
         ]);
     }
 }

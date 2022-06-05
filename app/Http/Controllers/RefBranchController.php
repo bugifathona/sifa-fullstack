@@ -148,11 +148,10 @@ class RefBranchController extends Controller
     public function destroy($id)
     {
         $branch = RefBranch::find($id);
-        $deleted = $branch;
         $branch->delete();
 
         return redirect()->route('sysadmin.reference.branches.index')
-            ->with('deleted', $deleted->name);
+            ->with('deleted', $branch->name);
     }
 
     /**

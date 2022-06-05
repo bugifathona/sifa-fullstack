@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('ref_education_levels', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('number_code', 2)->unique();
+            $table->string('other_info')->nullable();
             $table->timestamps();
         });
     }

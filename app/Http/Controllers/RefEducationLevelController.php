@@ -14,7 +14,10 @@ class RefEducationLevelController extends Controller
      */
     public function index()
     {
-        return view('domains.sysadmin.reference.education-levels');
+        $education_levels = RefEducationLevel::all();
+
+        return view('domains.sysadmin.reference.education-levels')
+            ->with('education_levels', $education_levels);
     }
 
     /**
@@ -24,7 +27,7 @@ class RefEducationLevelController extends Controller
      */
     public function create()
     {
-        //
+        return view('domains.sysadmin.reference.education-levels-create');
     }
 
     /**
@@ -35,51 +38,79 @@ class RefEducationLevelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:ref_education_levels,name',
+            'number_code' => 'required|digits:2|unique:ref_education_levels,number_code',
+        ]);
+
+        $education_level = RefEducationLevel::create($request->all());
+
+        return redirect()->route('sysadmin.reference.education-levels.index')
+            ->with('created', $education_level->name);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\RefEducationLevel  $refEducationLevel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(RefEducationLevel $refEducationLevel)
+    public function show($id)
     {
-        //
+        $education_level = RefEducationLevel::find($id);
+
+        return view('domains.sysadmin.reference.education-levels-show')
+            ->with('education_level', $education_level);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\RefEducationLevel  $refEducationLevel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(RefEducationLevel $refEducationLevel)
+    public function edit($id)
     {
-        //
+        $education_level = RefEducationLevel::find($id);
+
+        return view('domains.sysadmin.reference.education-levels-edit')
+            ->with('education_level', $education_level);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RefEducationLevel  $refEducationLevel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RefEducationLevel $refEducationLevel)
+    public function update(Request $request, $id)
     {
-        //
+        $education_level = RefEducationLevel::find($id);
+
+        $request->validate([
+            'name' => 'required|unique:ref_education_levels,name,' . $id,
+            'number_code' => 'required|digits:2|unique:ref_education_levels,number_code,' . $id,
+        ]);
+
+        $education_level->fill($request->all())->save();
+
+        return redirect()->route('sysadmin.reference.education-levels.index')
+            ->with('updated', $education_level->name);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\RefEducationLevel  $refEducationLevel
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RefEducationLevel $refEducationLevel)
+    public function destroy($id)
     {
-        //
+        $education_level = RefEducationLevel::find($id);
+        $education_level->delete();
+
+        return redirect()->route('sysadmin.reference.education-levels.index')
+            ->with('deleted', $education_level->name);
     }
 }
