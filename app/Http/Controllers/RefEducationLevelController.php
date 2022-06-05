@@ -14,7 +14,7 @@ class RefEducationLevelController extends Controller
      */
     public function index()
     {
-        //
+        return view('domains.sysadmin.reference.education-levels');
     }
 
     /**

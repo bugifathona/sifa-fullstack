@@ -30,8 +30,7 @@
                 <th class="p-2 min-w-[150px]">Branch Name</th>
                 <th class="p-2 min-w-[150px]">Number Code</th>
                 <th class="p-2 min-w-[150px]">Alpha Code</th>
-                <th class="p-2 min-w-[150px]">Created</th>
-                <th class="p-2 min-w-[150px]">Updated</th>
+                <th class="p-2 min-w-[150px]">Active</th>
               </tr>
             </thead>
             <tbody>
@@ -62,8 +61,22 @@
                   </td>
                   <td class="border border-gray-200 p-2 dark:border-gray-700 text-center">{{ $branch->number_code }}</td>
                   <td class="border border-gray-200 p-2 dark:border-gray-700 text-center">{{ $branch->alpha_code }}</td>
-                  <td class="border border-gray-200 p-2 dark:border-gray-700 text-center">{{ $branch->created_at->format('d M Y') }}</td>
-                  <td class="border border-gray-200 p-2 dark:border-gray-700 text-center">{{ $branch->updated_at->format('d M Y') }}</td>
+                  <td class="border border-gray-200 p-2 dark:border-gray-700 text-center">
+                    <form action="{{ route('sysadmin.reference.branches.toggle-active', $branch->id) }}" id="toggle{{ $branch->id }}" method="POST">
+                      @csrf
+                      @method('PUT')
+                      <input
+                      type="checkbox"
+                      name="is_active"
+                      id="is_active"
+                      class="h-5 w-5 checked:accent-indigo-500 dark:bg-gray-700 border border-gray-500 dark:border-gray-700 rounded-md focus:outline-none ltr:mr-2 rtl:ml-2"
+                      value="1"
+                      x-on:click="document.getElementById('toggle{{ $branch->id }}').submit()"
+                      @if ($branch->is_active == 1)
+                        checked
+                      @endif>
+                    </form>
+                  </td>
                 </tr>
               @endforeach
               @if ($branches->count() == 0)
