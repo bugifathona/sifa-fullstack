@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('ref_periods', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('ref_period_type_id');
+            $table->string('name');
+            $table->string('alias');
+            $table->string('other_info')->nullable();
             $table->timestamps();
+            $table->foreign('ref_period_type_id')->references('id')->on('ref_period_types');
         });
     }
 

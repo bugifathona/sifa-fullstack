@@ -5,8 +5,6 @@ namespace Database\Seeders;
 use App\Models\RefBranch;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 
 class RefBranchSeeder extends Seeder
 {
@@ -18,8 +16,7 @@ class RefBranchSeeder extends Seeder
     public function run()
     {
         // Truncate tables
-        Schema::disableForeignKeyConstraints();
-        DB::table('ref_branches')->truncate();
+        RefBranch::truncate();
 
         // Create models
         $branches = [
@@ -120,6 +117,5 @@ class RefBranchSeeder extends Seeder
             RefBranch::create($branch);
         }
 
-        Schema::enableForeignKeyConstraints();
     }
 }

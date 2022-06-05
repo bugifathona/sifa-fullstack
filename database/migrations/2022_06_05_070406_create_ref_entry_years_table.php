@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('ref_entry_years', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('other_info')->nullable();
             $table->timestamps();
         });
     }

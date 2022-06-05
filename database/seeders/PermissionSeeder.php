@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Role;
 
 class PermissionSeeder extends Seeder
@@ -22,7 +21,6 @@ class PermissionSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // truncate table
-        Schema::disableForeignKeyConstraints();
         DB::table('model_has_roles')->truncate();
         DB::table('roles')->truncate();
         DB::table('users')->truncate();
@@ -61,6 +59,5 @@ class PermissionSeeder extends Seeder
             $user->assignRole($item['username']);
         }
 
-        Schema::enableForeignKeyConstraints();
     }
 }

@@ -6,8 +6,6 @@ use App\Models\RefClassGrade;
 use App\Models\RefEducationLevel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 
 class RefClassGradeSeeder extends Seeder
 {
@@ -19,8 +17,7 @@ class RefClassGradeSeeder extends Seeder
     public function run()
     {
         // Truncate tables
-        Schema::disableForeignKeyConstraints();
-        DB::table('ref_class_grades')->truncate();
+        RefClassGrade::truncate();
 
         // Create models
         $class_grades = [
@@ -85,7 +82,6 @@ class RefClassGradeSeeder extends Seeder
             RefClassGrade::create($class_grade);
         }
 
-        Schema::enableForeignKeyConstraints();
 
     }
 }

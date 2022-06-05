@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ref_period_types', function (Blueprint $table) {
+        Schema::create('ref_family_relations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('name_english');
             $table->string('other_info')->nullable();
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ref_period_types');
+        Schema::dropIfExists('ref_family_relations');
     }
 };

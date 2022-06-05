@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('ref_employment_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('other_info')->nullable();
             $table->timestamps();
         });
     }

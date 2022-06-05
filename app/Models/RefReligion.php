@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class RefReligion extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['created_at', 'updated_at'];
 }

@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('ref_genders', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('name_english');
+            $table->string('name_arabic');
+            $table->string('other_info')->nullable();
             $table->timestamps();
         });
     }

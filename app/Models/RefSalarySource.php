@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class RefSalarySource extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['created_at', 'updated_at'];
 }

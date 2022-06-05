@@ -5,8 +5,6 @@ namespace Database\Seeders;
 use App\Models\RefEducationLevel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 
 class RefEducationLevelSeeder extends Seeder
 {
@@ -18,8 +16,7 @@ class RefEducationLevelSeeder extends Seeder
     public function run()
     {
         // Truncate tables
-        Schema::disableForeignKeyConstraints();
-        DB::table('ref_education_levels')->truncate();
+        RefEducationLevel::truncate();
 
         // Create models
         $education_levels = [
@@ -77,6 +74,5 @@ class RefEducationLevelSeeder extends Seeder
             RefEducationLevel::create($education_level);
         }
 
-        Schema::enableForeignKeyConstraints();
     }
 }
